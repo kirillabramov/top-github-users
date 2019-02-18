@@ -1,19 +1,12 @@
 const initialState = {
     usersList: [],
-    error: false,
-    loading: false
+    error: false
 };
 
 
 
 const reducer = (state = initialState, { type, payload }) => {
     switch(type){
-        case 'USERS_LOADING':
-            return {
-                ...state,
-                loading: true,
-                error: false
-            };
         case 'USERS_ERROR':
             return{
                 ...state,
@@ -23,11 +16,11 @@ const reducer = (state = initialState, { type, payload }) => {
         case 'USERS_SUCCESS':
             return{
                 ...state,
-                usersList: payload.users
+                usersList: payload
             };
         default:
             return state;
-    };
+    }
 }
 
 export default reducer;
